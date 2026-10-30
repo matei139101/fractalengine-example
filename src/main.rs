@@ -1,4 +1,4 @@
-use fractalengine::{FractalEngine, ServiceRegistry, log};
+use fractalengine::{FractalEngine, Service, ServiceRegistry, log};
 use fractalengine_dashboard::DashboardService;
 
 fn main() {
@@ -7,7 +7,7 @@ fn main() {
     let mut service_registry = ServiceRegistry::new();
 
     let dashboard_service = DashboardService::new();
-    DashboardService::register(dashboard_service.clone(), &mut service_registry);
+    dashboard_service.register(&mut service_registry);
     
     let mut engine = FractalEngine::new(service_registry);
     engine.run();
