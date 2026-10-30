@@ -1,8 +1,8 @@
-use fractalengine::{FractalEngine, ServiceRegistry};
+use fractalengine::{FractalEngine, ServiceRegistry, log};
 use fractalengine_dashboard::DashboardService;
 
 fn main() {
-    println!("Hello, world!");
+    log!(Minor, "Started program.");
 
     let mut service_registry = ServiceRegistry::new();
 
@@ -11,4 +11,6 @@ fn main() {
     
     let mut engine = FractalEngine::new(service_registry);
     engine.run();
+
+    log!(Minor, "Shutdown program.");
 }
